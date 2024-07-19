@@ -13,10 +13,6 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
-
 interface Props {
   url: string;
 }
@@ -27,12 +23,7 @@ export const MagicLinkEmail = ({ url }: Props) => (
     <Preview>Radapro, your magic link</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Img
-          src={`${baseUrl}/static/logo.svg`}
-          alt="Radapro"
-          width={48}
-          height={48}
-        />
+        <Img src="/static/logo.svg" alt="Radapro" width={48} height={48} />
         <Heading style={heading}>Your magic link</Heading>
         <Section style={body}>
           <Text style={paragraph}>
@@ -51,7 +42,7 @@ export const MagicLinkEmail = ({ url }: Props) => (
         </Text>
         <Hr style={hr} />
         <Img
-          src={`${baseUrl}/static/logo.svg`}
+          src="/static/logo.svg"
           alt="Radapro"
           width={32}
           height={32}
