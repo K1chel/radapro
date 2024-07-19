@@ -13,6 +13,10 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
+const baseUrl = process.env.VERCEL_URL
+  ? `https://${process.env.VERCEL_URL}`
+  : "";
+
 interface Props {
   url: string;
 }
@@ -20,14 +24,19 @@ interface Props {
 export const MagicLinkEmail = ({ url }: Props) => (
   <Html>
     <Head />
-    <Preview>APP_NAME, your magic link</Preview>
+    <Preview>Radapro, your magic link</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Img src="" width={48} height={48} alt="CHNAGE TO YOUR LOGO" />
+        <Img
+          src={`${baseUrl}/static/logo.svg`}
+          alt="Radapro"
+          width={48}
+          height={48}
+        />
         <Heading style={heading}>Your magic link</Heading>
         <Section style={body}>
           <Text style={paragraph}>
-            <Link style={link} href={url}>
+            <Link href={url} style={link}>
               👉 Click here to sign in 👈
             </Link>
           </Text>
@@ -38,12 +47,12 @@ export const MagicLinkEmail = ({ url }: Props) => (
         <Text style={paragraph}>
           Best,
           <br />
-          <br />- PROJECT NAME
+          <br />- Radapro
         </Text>
         <Hr style={hr} />
         <Img
-          src=""
-          alt="CHANGE TO YOUR LOGO"
+          src={`${baseUrl}/static/logo.svg`}
+          alt="Radapro"
           width={32}
           height={32}
           style={{
@@ -52,8 +61,11 @@ export const MagicLinkEmail = ({ url }: Props) => (
             margin: "20px 0",
           }}
         />
-        <Text style={footer}>COMPMNAY NAME</Text>
-        <Text style={footer}>SOME INFO AT THE BOTTOM</Text>
+        <Text style={footer}>Radapro</Text>
+        <Text style={footer}>
+          Please don't reply to this email. This email is sent from an
+          unmonitored address.
+        </Text>
       </Container>
     </Body>
   </Html>
@@ -88,7 +100,7 @@ const paragraph = {
 };
 
 const link = {
-  color: "#FF6363",
+  color: "#00bb2a200",
   cursor: "pointer",
 };
 

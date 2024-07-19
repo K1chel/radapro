@@ -1,14 +1,16 @@
 "use client";
 
+import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import * as z from "zod";
+import { redirect } from "next/navigation";
+import Image from "next/image";
+import { Loader2Icon } from "lucide-react";
 
 import { magicLink } from "@/actions/magic-link";
 import { ErrorMessage } from "@/components/error-message";
 import { loginSchema } from "@/lib/schemas";
 import { cn } from "@/lib/utils";
-import { redirect } from "next/navigation";
 
 const SignInPage = () => {
   const {
@@ -31,7 +33,11 @@ const SignInPage = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto w-full px-4">
+    <div className="w-full flex flex-col space-y-5">
+      <div className="flex items-center gap-x-3 justify-center">
+        <Image src="/logo.svg" alt="Radapro Logo" width={55} height={55} />
+        <h3 className="text-lg font-semibold">Radapro</h3>
+      </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex flex-col items-center justify-center gap-y-4 w-full"
@@ -41,7 +47,7 @@ const SignInPage = () => {
           <input
             placeholder="email@email.com"
             className={cn(
-              "w-full p-2 rounded border",
+              "w-full input input-bordered input-primary",
               isSubmitting && "opacity-50 cursor-not-allowed"
             )}
             {...register("email")}
@@ -51,13 +57,20 @@ const SignInPage = () => {
         <ErrorMessage message={errors.email?.message} />
         <button
           className={cn(
-            "w-full bg-slate-200 p-2 rounded",
-            isSubmitting && "opacity-50 cursor-not-allowed"
+            "w-full btn btn-primary",
+            isSubmitting && "opacity-75 cursor-not-allowed"
           )}
           type="submit"
           disabled={isSubmitting}
         >
-          Send Magic Link
+          {isSubmitting ? (
+            <div className="flex items-center gap-x-2">
+              <Loader2Icon className="size-5 animate-spin" />
+              <p>Sending...</p>
+            </div>
+          ) : (
+            "Send Magic Link"
+          )}
         </button>
       </form>
     </div>

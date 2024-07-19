@@ -9,9 +9,7 @@ export default async function Home() {
       {session ? (
         <div>
           <p>{JSON.stringify(session.user?.email)}</p>
-          <Link className="p-1 bg-slate-200" href="/client">
-            Redirect to client page
-          </Link>
+          <Link href="/dashboard">Go to dashboard</Link>
           <form
             action={async () => {
               "use server";

@@ -10,7 +10,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   adapter: PrismaAdapter(db),
   providers: [
     Resend({
-      from: "Acme <onboarding@resend.dev>",
+      from: "Radapro@k1chel-portfolio.com",
       sendVerificationRequest: async function ({
         identifier: email,
         url,
