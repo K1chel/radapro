@@ -11,6 +11,8 @@ import { magicLink } from "@/actions/magic-link";
 import { ErrorMessage } from "@/components/error-message";
 import { loginSchema } from "@/lib/schemas";
 import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const SignInPage = () => {
   const {
@@ -44,7 +46,7 @@ const SignInPage = () => {
       >
         <div className="w-full">
           <label className="text-sm font-semibold">Email</label>
-          <input
+          <Input
             placeholder="email@email.com"
             className={cn(
               "w-full input input-bordered input-primary",
@@ -55,7 +57,7 @@ const SignInPage = () => {
           />
         </div>
         <ErrorMessage message={errors.email?.message} />
-        <button
+        <Button
           className={cn(
             "w-full btn btn-primary",
             isSubmitting && "opacity-75 cursor-not-allowed"
@@ -71,7 +73,7 @@ const SignInPage = () => {
           ) : (
             "Send Magic Link"
           )}
-        </button>
+        </Button>
       </form>
     </div>
   );
