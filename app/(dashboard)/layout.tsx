@@ -18,7 +18,7 @@ const DashboardLayout = async ({ children }: Props) => {
       attribute="class"
       defaultTheme="system"
       enableSystem
-      // disableTransitionOnChange
+      disableTransitionOnChange
     >
       <div className="flex flex-col min-h-screen h-full">
         <Navbar />

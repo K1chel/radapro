@@ -3,15 +3,21 @@
 import { Loader2Icon, LogOutIcon, MenuIcon } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState, useTransition } from "react";
+import { usePathname } from "next/navigation";
 import { useMedia } from "react-use";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { signOut } from "@/actions/sign-out";
+import { MobileSidebarItem } from ".";
+
+import { SIDEBAR_ITEMS } from "@/constants";
 
 export const MobileMenu = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
   const [isPending, startTransition] = useTransition();
+  const pathname = usePathname();
 
   const isMobile = useMedia("(max-width: 768px)", false);
 
@@ -24,6 +30,10 @@ export const MobileMenu = () => {
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
 
   if (!isMounted) {
     return (
@@ -38,7 +48,7 @@ export const MobileMenu = () => {
   }
 
   return (
-    <Sheet>
+    <Sheet open={isOpen} onOpenChange={setIsOpen}>
       <SheetTrigger asChild className="outline-none">
         <Button size="icon" variant="outline">
           <MenuIcon />
@@ -51,15 +61,22 @@ export const MobileMenu = () => {
             <span className="text-lg font-semibold">Radapro</span>
           </div>
           <div className="flex flex-col gap-y-3">
-            <p>ITEM 1</p>
-            <p>ITEM 2</p>
-            <p>ITEM 3</p>
+            {SIDEBAR_ITEMS.map((item) => (
+              <MobileSidebarItem
+                key={item.href}
+                name={item.name}
+                icon={item.icon}
+                href={item.href}
+                disabled={isPending}
+              />
+            ))}
           </div>
           <form onSubmit={onSubmit}>
-            <Button className="w-full" disabled={isPending}>
-              <LogOutIcon className="size-5 mr-2" />
-              Log Out
-            </Button>
+            <MobileSidebarItem
+              name="Log Out"
+              icon={LogOutIcon}
+              disabled={isPending}
+            />
           </form>
         </div>
       </SheetContent>

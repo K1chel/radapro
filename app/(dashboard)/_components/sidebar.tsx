@@ -46,7 +46,6 @@ export const Sidebar = () => {
               disabled={isPending}
               name="Log Out"
               icon={LogOutIcon}
-              onClick={() => {}}
             />
           </form>
         </div>

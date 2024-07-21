@@ -26,6 +26,6 @@ export const NAVBAR_TITLES: NavbarTitles = {
   "/dashboard": { title: "Dashboard", subtitle: "Welcome to the home page" },
   "/resumes": {
     title: "Resumes",
-    subtitle: "Update or delete your resumes here",
+    subtitle: "Upload or delete your resumes here",
   },
 };
