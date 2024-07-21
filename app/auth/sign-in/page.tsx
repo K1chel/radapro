@@ -37,7 +37,7 @@ const SignInPage = () => {
   return (
     <div className="w-full flex flex-col space-y-5">
       <div className="flex items-center gap-x-3 justify-center">
-        <Image src="/logo.svg" alt="Radapro Logo" width={55} height={55} />
+        <Image src="/logo.png" alt="Radapro Logo" width={55} height={55} />
         <h3 className="text-lg font-semibold">Radapro</h3>
       </div>
       <form

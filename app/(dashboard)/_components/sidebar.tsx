@@ -20,13 +20,13 @@ export const Sidebar = () => {
   };
 
   return (
-    <aside className="fixed top-0 h-full z-50 bg-secondary md:w-24 xl:w-[220px] hidden md:block">
+    <aside className="fixed top-0 h-full z-50 dark:bg-neutral-950 bg-neutral-50 md:w-24 xl:w-[220px] hidden md:block">
       <div className="flex flex-col h-full">
         <Link
           href="/dashboard"
           className="h-20 flex items-center justify-center xl:justify-start px-4 gap-x-1.5"
         >
-          <Image src="/logo.svg" alt="Radapro Logo" width={56} height={56} />
+          <Image src="/logo.png" alt="Radapro Logo" width={56} height={56} />
           <span className="hidden xl:block font-semibold text-xl">Radapro</span>
         </Link>
         <div className="flex flex-col flex-1 px-4 py-5 gap-y-3">

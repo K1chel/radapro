@@ -23,7 +23,7 @@ export const MagicLinkEmail = ({ url }: Props) => (
     <Preview>Radapro, your magic link</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Img src="/static/logo.svg" alt="Radapro" width={48} height={48} />
+        <Img src="/static/logo.png" alt="Radapro" width={48} height={48} />
         <Heading style={heading}>Your magic link</Heading>
         <Section style={body}>
           <Text style={paragraph}>
@@ -42,7 +42,7 @@ export const MagicLinkEmail = ({ url }: Props) => (
         </Text>
         <Hr style={hr} />
         <Img
-          src="/static/logo.svg"
+          src="/static/logo.png"
           alt="Radapro"
           width={32}
           height={32}

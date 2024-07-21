@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { ActionTooltip } from "@/components/action-tooltip";
+import { cn } from "@/lib/utils";
 
 type Props = {
   name: string;
@@ -43,8 +44,11 @@ export const SidebarItem = ({
       className="hidden md:block xl:hidden"
     >
       <Button
-        className="w-full justify-center xl:justify-start flex items-center gap-x-3"
-        variant={isActive ? "default" : "outline"}
+        className={cn(
+          "w-full xl:justify-start justify-center flex items-center gap-x-3",
+          !isActive && "text-neutral-600 dark:text-neutral-400"
+        )}
+        variant={isActive ? "default" : "ghost"}
         onClick={handleClick}
         disabled={disabled}
       >

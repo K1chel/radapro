@@ -12,3 +12,20 @@ export const SIDEBAR_ITEMS = [
     href: "/resumes",
   },
 ] as const;
+
+type Title = {
+  title: string;
+  subtitle: string;
+};
+
+type NavbarTitles = {
+  [key: string]: Title;
+};
+
+export const NAVBAR_TITLES: NavbarTitles = {
+  "/dashboard": { title: "Dashboard", subtitle: "Welcome to the home page" },
+  "/resumes": {
+    title: "Resumes",
+    subtitle: "Update or delete your resumes here",
+  },
+};

@@ -20,9 +20,11 @@ export default async function Home() {
           </form>
         </div>
       ) : (
-        <Link href="/auth/sign-in">
-          <button>Sign In</button>
-        </Link>
+        <>
+          <Link href="/auth/sign-in">
+            <button>Sign In</button>
+          </Link>
+        </>
       )}
     </main>
   );
