@@ -2,6 +2,7 @@ import { ResumeCard } from "@/components/resume-card";
 import { UploadResumeButton } from "@/components/upload-resume-button";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
+import { Empty } from "./_components/empty";
 
 const ResumesPage = async () => {
   const session = await auth();
@@ -17,13 +18,7 @@ const ResumesPage = async () => {
     },
   });
 
-  if (!resumes.length)
-    return (
-      <div className="w-full">
-        <p>TODO: Empty screen with upload resume button</p>;
-        <UploadResumeButton />
-      </div>
-    );
+  if (!resumes.length) return <Empty />;
 
   return (
     <div className="flex flex-col gap-y-5 w-full h-full px-6 mt-8">
