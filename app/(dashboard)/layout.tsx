@@ -25,7 +25,7 @@ const DashboardLayout = async ({ children }: Props) => {
       <div className="flex flex-col min-h-screen h-full">
         <Navbar />
         <Sidebar />
-        <main className="flex-1 mt-20 md:pl-24 xl:pl-[220px] w-full">
+        <main className="flex-1 mt-20 md:pl-24 xl:pl-[220px] w-full dark:bg-[#0a0a0a]">
           {children}
         </main>
         <Footer />

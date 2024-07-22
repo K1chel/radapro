@@ -20,7 +20,7 @@ export const Sidebar = () => {
   };
 
   return (
-    <aside className="fixed top-0 h-full z-50 dark:bg-neutral-950 bg-neutral-50 md:w-24 xl:w-[220px] hidden md:block">
+    <aside className="fixed top-0 h-full z-50 dark:bg-[#0a0a0a] dark:border-r bg-neutral-50 md:w-24 xl:w-[220px] hidden md:block">
       <div className="flex flex-col h-full">
         <Link
           href="/dashboard"

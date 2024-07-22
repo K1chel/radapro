@@ -67,7 +67,7 @@ export const Navbar = () => {
   const { title, subtitle } = getNavbarTitle(pathname);
 
   return (
-    <nav className="fixed top-0 h-20 w-full z-50 bg-background md:pl-24 xl:pl-[220px]">
+    <nav className="fixed top-0 h-20 w-full z-50 bg-background dark:bg-[#0a0a0a] md:pl-24 xl:pl-[220px]">
       <header className="flex items-center h-full w-full justify-between px-5">
         <div className="flex items-center gap-x-4">
           <div className="block md:hidden">
