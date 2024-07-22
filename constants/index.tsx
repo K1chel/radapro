@@ -28,4 +28,8 @@ export const NAVBAR_TITLES: NavbarTitles = {
     title: "Resumes",
     subtitle: "Upload or delete your resumes here",
   },
+  "/resumes/[resumeId]": {
+    title: "Resume",
+    subtitle: "View your resume here",
+  },
 };
