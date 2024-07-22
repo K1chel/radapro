@@ -11,6 +11,7 @@ import { cn, getTime } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { FormEvent, useTransition } from "react";
 import { toast } from "sonner";
+import { useConfirm } from "@/hooks/use-confirm";
 
 type Props = {
   resume: Resume;
@@ -18,21 +19,29 @@ type Props = {
 
 export const ResumeCard = ({ resume }: Props) => {
   const [isPending, startTransition] = useTransition();
-
   const router = useRouter();
+
+  const [ConfirmDialog, confirm] = useConfirm(
+    "Delete Resume",
+    "Are you sure you want to delete this resume?"
+  );
 
   const handleDelete = async (e: FormEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    try {
-      startTransition(async () => {
-        await deleteResume(resume.id).then(() => {
-          toast.success("Resume deleted successfully");
-          router.refresh();
+    const ok = await confirm();
+
+    if (ok) {
+      try {
+        startTransition(async () => {
+          await deleteResume(resume.id).then(() => {
+            toast.success("Resume deleted successfully");
+            router.refresh();
+          });
         });
-      });
-    } catch (error) {
-      console.error(error);
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
@@ -64,12 +73,12 @@ export const ResumeCard = ({ resume }: Props) => {
             size="icon"
             variant="destructive"
             className="h-auto w-auto p-2 rounded-md"
-            disabled={isPending}
           >
             <Trash2Icon className="size-4" />
           </Button>
         </form>
       </div>
+      <ConfirmDialog />
     </Card>
   );
 };
