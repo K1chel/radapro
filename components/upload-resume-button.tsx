@@ -1,6 +1,12 @@
 "use client";
 
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { UploadDropzone } from "@/components/upload-dropzone";
 import { PlusCircleIcon } from "lucide-react";
 import { useState } from "react";
@@ -18,6 +24,8 @@ export const UploadResumeButton = () => {
         </Button>
       </DialogTrigger>
       <DialogContent>
+        <DialogTitle />
+        <DialogDescription />
         <UploadDropzone setIsOpen={setIsOpen} />
       </DialogContent>
     </Dialog>
