@@ -70,9 +70,9 @@ export const UploadDropzone = ({ setIsOpen }: Props) => {
       {({ getRootProps, getInputProps, acceptedFiles }) => (
         <div
           {...getRootProps()}
-          className="border h-64 m-4 border-dashed border-gray-300 dark:border-neutral-700 rounded-lg"
+          className="border md:h-64 h-72 m-4 border-dashed border-gray-300 dark:border-neutral-700 rounded-lg"
         >
-          <div className="flex items-center justify-center h-full w-full">
+          <div className="flex  items-center justify-center h-full w-full">
             <label
               htmlFor="dropzone-file"
               className="flex flex-col items-center justify-center w-full h-full rounded-lg cursor-pointer bg-gray-50 dark:bg-neutral-900 hover:bg-gray-100 dark:hover:bg-neutral-950 transition"

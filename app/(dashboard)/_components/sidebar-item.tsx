@@ -3,7 +3,7 @@
 import { LucideIcon } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
+import { Button, ButtonProps } from "@/components/ui/button";
 import { ActionTooltip } from "@/components/action-tooltip";
 import { cn } from "@/lib/utils";
 
@@ -13,6 +13,8 @@ type Props = {
   href?: string;
   onClick?: () => void;
   disabled?: boolean;
+  variant?: ButtonProps["variant"];
+  className?: string;
 };
 
 export const SidebarItem = ({
@@ -21,11 +23,14 @@ export const SidebarItem = ({
   disabled,
   onClick,
   href,
+  variant,
+  className,
 }: Props) => {
   const pathname = usePathname();
   const router = useRouter();
 
   const isActive = href === pathname;
+  const btnVariant = variant || (isActive ? "default" : "ghost");
 
   const handleClick = () => {
     if (onClick) {
@@ -46,9 +51,10 @@ export const SidebarItem = ({
       <Button
         className={cn(
           "w-full xl:justify-start justify-center flex items-center gap-x-3",
-          !isActive && "text-neutral-600 dark:text-neutral-400"
+          !isActive && "text-neutral-600 dark:text-neutral-400",
+          className
         )}
-        variant={isActive ? "default" : "ghost"}
+        variant={btnVariant}
         onClick={handleClick}
         disabled={disabled}
       >

@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 type Props = {
   name: string;
   children: React.ReactNode;
-  side: "top" | "right" | "bottom" | "left";
+  side?: "top" | "right" | "bottom" | "left";
   sideOffset?: number;
   className?: string;
 };
@@ -17,7 +17,7 @@ type Props = {
 export const ActionTooltip = ({
   children,
   name,
-  side,
+  side = "right",
   className,
   sideOffset,
 }: Props) => {

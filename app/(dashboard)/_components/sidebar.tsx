@@ -1,17 +1,20 @@
 "use client";
 
-import { LogOutIcon } from "lucide-react";
+import { LogOutIcon, SparklesIcon } from "lucide-react";
 import Image from "next/image";
-import { useTransition } from "react";
 import Link from "next/link";
+import { useTransition } from "react";
 
 import { signOut } from "@/actions/sign-out";
 import { SidebarItem } from ".";
 
 import { SIDEBAR_ITEMS } from "@/constants";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 export const Sidebar = () => {
   const [isPending, startTransition] = useTransition();
+
+  const { onOpen: onProModalOpen } = useProModal();
 
   const onSubmit = async () => {
     startTransition(async () => {
@@ -40,7 +43,14 @@ export const Sidebar = () => {
             />
           ))}
         </div>
-        <div className="px-4 py-5">
+        <div className="px-4 py-5 flex flex-col gap-y-3">
+          <SidebarItem
+            name="Upgrade"
+            icon={SparklesIcon}
+            onClick={onProModalOpen}
+            variant="pro"
+            className="text-white"
+          />
           <form onSubmit={onSubmit}>
             <SidebarItem
               disabled={isPending}

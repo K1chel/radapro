@@ -17,13 +17,20 @@ interface Props {
   url: string;
 }
 
+export const BASE_URL = process.env.HOST_NAME;
+
 export const MagicLinkEmail = ({ url }: Props) => (
   <Html>
     <Head />
     <Preview>Radapro, your magic link</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Img src="/static/logo.png" alt="Radapro" width={48} height={48} />
+        <Img
+          src={`${BASE_URL}/logo.png`}
+          alt="Radapro"
+          width={48}
+          height={48}
+        />
         <Heading style={heading}>Your magic link</Heading>
         <Section style={body}>
           <Text style={paragraph}>
@@ -32,7 +39,7 @@ export const MagicLinkEmail = ({ url }: Props) => (
             </Link>
           </Text>
           <Text style={paragraph}>
-            If you didn't request this, please ignore this email.
+            If you didn&apos;t request this, please ignore this email.
           </Text>
         </Section>
         <Text style={paragraph}>
@@ -42,7 +49,7 @@ export const MagicLinkEmail = ({ url }: Props) => (
         </Text>
         <Hr style={hr} />
         <Img
-          src="/static/logo.png"
+          src={`${BASE_URL}/logo.png`}
           alt="Radapro"
           width={32}
           height={32}
@@ -54,7 +61,7 @@ export const MagicLinkEmail = ({ url }: Props) => (
         />
         <Text style={footer}>Radapro</Text>
         <Text style={footer}>
-          Please don't reply to this email. This email is sent from an
+          Please don&apos;t reply to this email. This email is sent from an
           unmonitored address.
         </Text>
       </Container>

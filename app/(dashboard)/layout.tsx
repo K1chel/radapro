@@ -4,6 +4,7 @@ import { auth } from "@/lib/auth";
 import { Footer, Navbar, Sidebar } from "./_components";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { ToastProvider } from "@/providers/toast-provider";
+import { ModalProvider } from "@/providers/modal-provider";
 
 type Props = {
   children: React.ReactNode;
@@ -22,6 +23,7 @@ const DashboardLayout = async ({ children }: Props) => {
       disableTransitionOnChange
     >
       <ToastProvider />
+      <ModalProvider />
       <div className="flex flex-col min-h-screen h-full">
         <Navbar />
         <Sidebar />
